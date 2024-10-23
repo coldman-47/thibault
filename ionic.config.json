@@ -1,0 +1,7 @@
+{
+  "name": "thibault",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
