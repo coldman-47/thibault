@@ -1,73 +1,98 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>produits</ion-title>
+    <ion-title>Boom</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">produits</ion-title>
+      <ion-title [color]="'primary'" size="large">Soldes</ion-title>
     </ion-toolbar>
   </ion-header>
-  <swiper-container [freeMode]="true" [spaceBetween]="20" [slidesPerView]="1">
-    <swiper-slide
-      style="
-        background-image: url('https://img.passeportsante.net/1200x675/2021-03-19/i100431-darne-de-saumon.webp');
-      "
-    >
-      <div>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatum hic vero ex, iste, adipisci, mollitia nostrum eos
-                voluptatibus odit incidunt perspiciatis explicabo provident
-                molestiae! Nemo molestias totam dicta provident quos!
-              </ion-text>
-              <ion-row>
-                <ion-col size="8">
-                  <ion-text>
-                    <h3>Saumon</h3>
-                  </ion-text>
-                </ion-col>
-                <ion-col>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-    </swiper-slide>
-    <swiper-slide
-      style="
-        background-image: url('https://www.mangerbouger.fr/var/mb/storage/images/_aliases/reference/8/1/9/7/7918-1-eng-GB/poisson_bar.jpg');
-      "
-    >
-      <div>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatum hic vero ex, iste, adipisci, mollitia nostrum eos
-                voluptatibus odit incidunt perspiciatis explicabo provident
-                molestiae! Nemo molestias totam dicta provident quos!
-              </ion-text>
-              <ion-row>
-                <ion-col size="8">
-                  <ion-text>
-                    <h3>Bar de ligne</h3>
-                  </ion-text>
-                </ion-col>
-                <ion-col>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-    </swiper-slide>
-  </swiper-container>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <swiper-container
+          [freeMode]="true"
+          [spaceBetween]="20"
+          [slidesPerView]="1"
+          [loop]="true"
+        >
+          @for (item of productsOnSale; track $index) {
+
+          <swiper-slide style="background-image: url('{{item.img}}')">
+            <div>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="comments">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Voluptatum hic vero ex, iste, adipisci, mollitia nostrum
+                      eos voluptatibus odit incidunt perspiciatis explicabo
+                      provident molestiae! Nemo molestias totam dicta provident
+                      quos!
+                    </div>
+                    <ion-row>
+                      <ion-col size="8">
+                        <ion-text>
+                          <h3>{{item.title}}</h3>
+                        </ion-text>
+                      </ion-col>
+                      <ion-col class="price-col">
+                        <ion-text
+                          ><b><span>12€</span> 15 €</b></ion-text
+                        >
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </swiper-slide>
+          }
+        </swiper-container>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-padding">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title [color]="'primary'">Produits</ion-card-title>
+          </ion-card-header>
+          <ion-list lines="none">
+            @for (product of productsOnSale; track $index) {
+            <ion-item>
+              <ion-avatar  slot="start">
+                <img
+                  class="product-img"
+                  [src]="product.img"
+                  alt=""
+                />
+              </ion-avatar>
+              <ion-label class="ion-no-margin">
+                <ion-row>
+                  <ion-col>
+                    <ion-text>
+                      <h4>{{product.title | titlecase}}</h4>
+                      <span>
+                        {{productsOnSale[0].description| slice:0:50}}
+                        {{productsOnSale[0].description.length > 50 ? '...' :
+                        ''}}
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+              </ion-label>
+              <ion-note>2.5</ion-note>
+            </ion-item>
+            }
+          </ion-list>
+          <ion-card-footer class="ion-padding ion-margin-bottom">
+            <ion-text>Voir tout</ion-text>
+          </ion-card-footer>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
