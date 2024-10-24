@@ -36,6 +36,11 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./../restaurant/restaurant.page').then((m) => m.RestaurantPage),
       },
+      {
+        path: 'contacte',
+        loadComponent: () =>
+          import('./../contacte/contacte.page').then((m) => m.ContactePage),
+      },
     ],
   },
   {

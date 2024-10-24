@@ -1,0 +1,17 @@
+ion-card {
+    margin: 20px;
+    text-align: center; 
+  }
+  
+  .image-container {
+    display: flex; /* Utilise flexbox pour centrer */
+    justify-content: center; /* Centre horizontalement */
+    margin: 16px 0; /* Espacement vertical autour de l'image */
+  }
+  
+  ion-img {
+    border-radius: 100%; /* Pour un effet de photo de profil arrondie */
+    width: 200px; /* Largeur de l'image */
+    height: 250px; /* Hauteur de l'image */
+  }
+  

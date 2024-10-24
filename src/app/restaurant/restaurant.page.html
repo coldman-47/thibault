@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-searchbar placeholder="Rechercher un Restaurant"></ion-searchbar>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Restaurant</ion-title>
@@ -51,7 +52,7 @@
       </ion-card-header>
       <ion-list lines="none">
         @for (Restaurant of RestaurantOnSale; track $index) {
-        <ion-item>
+        <ion-item routerLink="/restaurant/{{Restaurant.title}}">
           <ion-avatar  slot="start">
             <img
               class="Restaurant-img"
