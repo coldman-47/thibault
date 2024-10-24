@@ -1,0 +1,38 @@
+<ion-content>
+  <div id="img" [style.background]="'url(' + product.images[0] + ')'"></div>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding">
+        <ion-card class="ion-no-margin">
+          <ion-card-header>
+            <ion-row class="ion-align-items-center">
+              <ion-col>
+                <ion-card-title>{{ product.name | titlecase }}</ion-card-title>
+              </ion-col>
+              <ion-col class="ion-text-end">
+                <ion-text>
+                  <h4>{{ product.price | currency }}</h4>
+                </ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col class="ion-padding">
+                <ion-text>{{ product.comments }}</ion-text>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-padding">
+                <ion-button expand="block" [fill]="'outline'">
+                  Ajouter au panier
+                  <ion-icon slot="start" name="cart"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
