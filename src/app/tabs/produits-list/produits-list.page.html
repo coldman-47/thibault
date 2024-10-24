@@ -1,0 +1,75 @@
+<ion-toolbar> </ion-toolbar>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-padding-horizontal ion-margin-vertical"
+        ><ion-searchbar
+          [placeholder]="' Rechercher un produit'"
+          class="ion-no-padding"
+        ></ion-searchbar
+      ></ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-text-center">
+      <ion-col class="ion-justify-content-center">
+        <div class="filter-button">
+          <img src="assets/fishing-net.svg" alt="" />
+        </div>
+        <span>Tout</span>
+      </ion-col>
+      <ion-col class="ion-justify-content-center">
+        <div class="filter-button">
+          <img src="assets/fish.svg" alt="" />
+        </div>
+        <span>Poissons</span>
+      </ion-col>
+      <ion-col class="ion-justify-content-center">
+        <div class="filter-button">
+          <img src="assets/shrimp.svg" alt="" />
+        </div>
+        <span>Crustacés</span>
+      </ion-col>
+      <ion-col class="ion-justify-content-center">
+        <div class="filter-button">
+          <img src="assets/shellfish.svg" alt="" />
+        </div>
+        <span>Coquillages</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-vertical">
+      <ion-col class="ion-margin-vertical ion-padding-horizontal">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title [color]="'primary'">Nos produits</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-padding">
+            <ion-list lines="none">
+              @for (product of productsOnSale; track $index) {
+              <ion-item>
+                <ion-avatar slot="start">
+                  <img class="product-img" [src]="product.img" alt="" />
+                </ion-avatar>
+                <ion-label class="ion-no-margin">
+                  <ion-row>
+                    <ion-col>
+                      <ion-text>
+                        <h4>{{product.title | titlecase}}</h4>
+                        <span>
+                          {{productsOnSale[0].description| slice:0:50}}
+                          {{productsOnSale[0].description.length > 50 ? '...' :
+                          ''}}
+                        </span>
+                      </ion-text>
+                    </ion-col>
+                  </ion-row>
+                </ion-label>
+                <ion-note>2.5</ion-note>
+              </ion-item>
+              }
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

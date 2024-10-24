@@ -31,11 +31,25 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./produits/produits.page').then((m) => m.ProduitsPage),
       },
+      {
+        path: 'produits-list',
+        loadComponent: () =>
+          import('./produits-list/produits-list.page').then(
+            (m) => m.ProduitsListPage
+          ),
+      },
     ],
   },
   {
     path: '',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full',
+  },
+  {
+    path: 'produits-list',
+    loadComponent: () =>
+      import('./produits-list/produits-list.page').then(
+        (m) => m.ProduitsListPage
+      ),
   },
 ];

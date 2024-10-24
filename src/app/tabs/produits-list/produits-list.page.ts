@@ -6,17 +6,24 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
+  IonRow,
+  IonCol,
+  IonGrid,
+  IonText,
+  IonSearchbar,
 } from '@ionic/angular/standalone';
-import { register } from 'swiper/element/bundle';
-
-register();
 
 @Component({
-  selector: 'app-produits',
-  templateUrl: './produits.page.html',
-  styleUrls: ['./produits.page.scss'],
+  selector: 'app-produits-list',
+  templateUrl: './produits-list.page.html',
+  styleUrls: ['./produits-list.page.scss'],
   standalone: true,
   imports: [
+    IonSearchbar,
+    IonText,
+    IonGrid,
+    IonCol,
+    IonRow,
     IonContent,
     IonHeader,
     IonTitle,
@@ -26,7 +33,7 @@ register();
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ProduitsPage implements OnInit {
+export class ProduitsListPage implements OnInit {
   productsOnSale = [
     {
       title: 'Bar de ligne',

@@ -1,26 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Boom</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar>
+  <!-- <ion-title>Boom</ion-title> -->
+</ion-toolbar>
+<!-- <ion-header [mode]="'md'" [fullscreen]="true">
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title [color]="'primary'" size="large">Soldes</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
   <ion-grid>
     <ion-row>
+      <ion-col class="ion-padding-horizontal ion-margin-top"
+        ><ion-searchbar [placeholder]="' Rechercher un produit'" class="ion-no-padding"></ion-searchbar
+      ></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-padding">
+        <ion-text><h1>Soldes</h1></ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col>
-        <swiper-container
-          [freeMode]="true"
-          [spaceBetween]="20"
-          [slidesPerView]="1"
-          [loop]="true"
-        >
+        <swiper-container [freeMode]="true" [spaceBetween]="15" [loop]="true">
           @for (item of productsOnSale; track $index) {
-
           <swiper-slide style="background-image: url('{{item.img}}')">
             <div>
               <ion-grid>
@@ -63,12 +62,8 @@
           <ion-list lines="none">
             @for (product of productsOnSale; track $index) {
             <ion-item>
-              <ion-avatar  slot="start">
-                <img
-                  class="product-img"
-                  [src]="product.img"
-                  alt=""
-                />
+              <ion-avatar slot="start">
+                <img class="product-img" [src]="product.img" alt="" />
               </ion-avatar>
               <ion-label class="ion-no-margin">
                 <ion-row>
