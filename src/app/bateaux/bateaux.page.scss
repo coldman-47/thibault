@@ -2,16 +2,24 @@ ion-title{
     font-family: 'Ms Madi';
     font-size: 4em;
     font-weight: initial;
-}
+  }
 
-:host swiper-slide {
+  .featured-title {
+    font-family: 'Ms Madi';
+    font-size: 2.5em;
+    padding-left: 15px;
+    color: #2d2d2d;
+  }
+  
+  :host swiper-slide {
   width: 197px !important;
   height: 236px !important;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 20px;
   overflow: hidden;
-
+  
+  
   & > div {
     width: 100%;
     height: 100%;
@@ -19,60 +27,38 @@ ion-title{
     font-size: 10px;
     color: white;
     display: flex;
-
+  
     & > ion-grid {
       display: flex;
       flex-direction: column-reverse;
-
+  
       .comments {
         height: 51px;
         display: block;
         overflow: hidden;
         text-overflow: ellipsis !important;
-        // white-space: nowrap;
-      }
+           // white-space: nowrap;
     }
-  }
+}
+}
 
-  h3 {
+h3 {
     font-family: "Ms Madi";
-    font-size: 2.6em;
+    font-size: 2em;
     margin: 0;
   }
-
+  
   .price-col {
     display: flex;
     align-items: center;
     font-size: 12px;
-
+  
     & span {
       text-decoration: line-through;
-      font-size: 11px;
-    }
-  }
+      font-size: 11px;}
 }
 
-ion-card {
+  }
+
+
   
-
-  ion-card-footer{
-    display: block;
-    text-align: right;
-  }
-}
-
-ion-item {
-  ion-text {
-    font-size: 11px;
-  }
-
-  ion-avatar {
-    height: 50px;
-    width: 50px;
-    --border-radius: 10px;
-  }
-
-  //   ion-label{
-  //     margin: 0;
-  //   }
-}
