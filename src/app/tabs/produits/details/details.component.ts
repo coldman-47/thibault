@@ -5,18 +5,26 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
+  IonCard,
+  IonCardTitle,
   IonCol,
   IonContent,
   IonGrid,
+  IonIcon,
+  IonImg,
   IonRow,
   IonText,
   IonTitle,
-  IonImg,
-  IonCard,
-  IonCardTitle,
-  IonIcon
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { ButtonModule } from 'primeng/button';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { remove, add, cartOutline } from 'ionicons/icons';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-details',
@@ -39,13 +47,34 @@ import {
     JsonPipe,
     IonCard,
     IonIcon,
+    InputGroupModule,
+    InputGroupAddonModule,
+    ButtonModule,
+    InputNumberModule,
+    FormsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  // providers: [CartService],
 })
 export class DetailsComponent implements OnInit {
   @Input() product: any;
+  qty: number = 0;
+  cart: any[] = [];
 
-  constructor() {}
+  constructor(private cartService: CartService) {
+    addIcons({ remove, add, cartOutline });
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const cart = { ...this.cartService.cartItems.value };
+  }
+
+  changeQuantity() {
+    alert();
+  }
+
+  addToCart() {
+    this.cart.push(this.product);
+    this.cartService.cartItems.next(this.cart);
+  }
 }

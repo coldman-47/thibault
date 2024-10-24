@@ -91,3 +91,8 @@ ion-item {
     --border-radius: 10px;
   }
 }
+
+:host ::ng-deep p-input-group .p-button{
+// p-inputgroup.p-element.p-inputgroup div.p-inputgroup button.p-element.p-button.p-component.p-button-icon-only.p-button-small.p-button-sm
+    background: #092d4b !important
+}
