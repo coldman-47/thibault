@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons [slot]="'start'">
       <ion-back-button
@@ -7,13 +7,14 @@
       ></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
   <ion-grid>
     <ion-row>
       <ion-col class="ion-padding-horizontal ion-margin-vertical"
         ><ion-searchbar
+          #search
           [placeholder]="' Rechercher un produit'"
           class="ion-no-padding"
         ></ion-searchbar
@@ -21,25 +22,25 @@
     </ion-row>
     <ion-row class="ion-justify-content-center ion-text-center">
       <ion-col class="ion-justify-content-center">
-        <div class="filter-button">
+        <div class="filter-button" (click)="category = undefined">
           <img src="assets/fishing-net.svg" alt="" />
         </div>
         <span>Tout</span>
       </ion-col>
       <ion-col class="ion-justify-content-center">
-        <div class="filter-button">
+        <div class="filter-button" (click)="category=0">
           <img src="assets/fish.svg" alt="" />
         </div>
         <span>Poissons</span>
       </ion-col>
       <ion-col class="ion-justify-content-center">
-        <div class="filter-button">
+        <div class="filter-button" (click)="category=1">
           <img src="assets/shrimp.svg" alt="" />
         </div>
         <span>Crustacés</span>
       </ion-col>
       <ion-col class="ion-justify-content-center">
-        <div class="filter-button">
+        <div class="filter-button" (click)="category=2">
           <img src="assets/shellfish.svg" alt="" />
         </div>
         <span>Coquillages</span>
@@ -53,7 +54,8 @@
           </ion-card-header>
           <ion-card-content class="ion-padding">
             <ion-list lines="none">
-              @for (product of products; track $index) {
+              @for (product of ((products | filter:category) |
+              search:search.value!); track $index) {
               <ion-item (click)="showDetails(product)">
                 <ion-avatar slot="start">
                   <img
@@ -75,7 +77,9 @@
                     </ion-col>
                   </ion-row>
                 </ion-label>
-                <ion-note [color]="'primary'">{{product.price | currency}}</ion-note>
+                <ion-note [color]="'primary'"
+                  >{{product.price | currency}}</ion-note
+                >
               </ion-item>
               }
             </ion-list>

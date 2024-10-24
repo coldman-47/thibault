@@ -1,4 +1,47 @@
-<ion-tabs>
+<ion-menu contentId="main-content">
+  <ion-title>Panier d'achier</ion-title>
+  <ion-list lines="inset">
+    @for (product of cartItems; track $index) {
+    <ion-item>
+      <ion-avatar slot="start">
+        <img
+          class="product-img"
+          [src]="product.images ? product.images[0] : ''"
+          alt=""
+        />
+      </ion-avatar>
+      <ion-label class="ion-no-margin">
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              <h4>{{product.name | titlecase}}</h4>
+              <span>
+                {{product.comments| slice:0:50}}
+                {{product.comments?.length > 50 ? '...' : ''}}
+              </span>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-label>
+      <!-- <ion-note [color]="'primary'">{{product.price | currency}}</ion-note> -->
+    </ion-item>
+    }
+  </ion-list>
+</ion-menu>
+<ion-tabs id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons [slot]="'end'">
+        <ion-menu-toggle>
+          <ion-button><ion-icon name="cart-outline"></ion-icon><ion-badge color="danger">{{cartItems.length}}</ion-badge></ion-button>
+        </ion-menu-toggle>
+        <!-- <ion-back-button
+          [routerLink]="['/produits']"
+          [text]="'Retour'"
+        ></ion-back-button> -->
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="tab1" href="/tabs/tab1">
       <ion-icon aria-hidden="true" name="triangle"></ion-icon>

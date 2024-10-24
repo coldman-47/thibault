@@ -21,6 +21,8 @@ import {
 } from '@ionic/angular/standalone';
 import { environment } from 'src/environments/environment';
 import { DetailsComponent } from '../produits/details/details.component';
+import { FilterPipe } from 'src/app/pipes/filter.pipe';
+import { SearchPipe } from 'src/app/pipes/search.pipe';
 
 @Component({
   selector: 'app-produits-list',
@@ -42,6 +44,8 @@ import { DetailsComponent } from '../produits/details/details.component';
     RouterModule,
     DetailsComponent,
     HttpClientModule,
+    FilterPipe,
+    SearchPipe
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
@@ -50,13 +54,14 @@ export class ProduitsListPage implements OnInit {
   selectedProduct?: any;
 
   productsOnSale: any[] = [];
-  products:any[] = environment.products;
+  products: any[] = environment.products;
+  category?:number;
 
   constructor() {}
 
   ngOnInit() {
     console.log(this.products);
-    
+
     this.productsOnSale = this.products.map((p) => p.sale);
   }
 
