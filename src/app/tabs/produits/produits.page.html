@@ -8,7 +8,10 @@
   <ion-grid>
     <ion-row>
       <ion-col class="ion-padding-horizontal ion-margin-top"
-        ><ion-searchbar [placeholder]="' Rechercher un produit'" class="ion-no-padding"></ion-searchbar
+        ><ion-searchbar
+          [placeholder]="' Rechercher un produit'"
+          class="ion-no-padding"
+        ></ion-searchbar
       ></ion-col>
     </ion-row>
     <ion-row>
@@ -71,7 +74,7 @@
                     <ion-text>
                       <h4>{{product.title | titlecase}}</h4>
                       <span>
-                        {{productsOnSale[0].description| slice:0:50}}
+                        {{productsOnSale[0].description | slice:0:50}}
                         {{productsOnSale[0].description.length > 50 ? '...' :
                         ''}}
                       </span>
@@ -84,7 +87,9 @@
             }
           </ion-list>
           <ion-card-footer class="ion-padding ion-margin-bottom">
-            <ion-text>Voir tout</ion-text>
+            <ion-nav-link router-direction="forward" [component]="productsPage">
+              <ion-button routerLink="/produits-list">Voir tout</ion-button>
+            </ion-nav-link>
           </ion-card-footer>
         </ion-card>
       </ion-col>

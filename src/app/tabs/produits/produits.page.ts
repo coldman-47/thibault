@@ -8,6 +8,8 @@ import {
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { register } from 'swiper/element/bundle';
+import { RouterModule } from '@angular/router';
+import { ProduitsListPage } from '../produits-list/produits-list.page';
 
 register();
 
@@ -23,6 +25,7 @@ register();
     IonToolbar,
     CommonModule,
     FormsModule,
+    RouterModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
@@ -54,6 +57,7 @@ export class ProduitsPage implements OnInit {
       description: '',
     },
   ];
+  productsPage = ProduitsListPage;
 
   constructor() {}
 
