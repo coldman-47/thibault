@@ -1,1 +1,38 @@
+ion-list {
+  background: none;
 
+  ion-item {
+    --background: #f3f3f3;
+    border-radius: 10px;
+    margin: 10px;
+    --padding-start: 0.35em;
+    --padding-end: 0.35em;
+    --padding-top: 0.35em;
+    --padding-bottom: 0.35em;
+    ion-text {
+      font-size: 11px;
+    }
+
+    ion-avatar {
+      height: 50px;
+      width: 50px;
+      --border-radius: 10px;
+    }
+  }
+
+  ion-item-option {
+    height: 58px;
+    margin: auto 0;
+  }
+}
+
+ion-card {
+    margin: 0;
+    box-shadow: none;
+  
+    ion-card-footer {
+      display: block;
+      text-align: right;
+    }
+  }
+  

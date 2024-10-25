@@ -11,22 +11,40 @@
               </ion-col>
               <ion-col class="ion-text-end">
                 <ion-text>
-                  <h4>{{ product.price | currency }}</h4>
+                  <h4>{{ product.price | currency : "€ " }}</h4>
                 </ion-text>
               </ion-col>
             </ion-row>
           </ion-card-header>
           <ion-grid>
             <ion-row>
-              <ion-col class="ion-padding">
+              <ion-col class="ion-padding" size="12">
                 <ion-text>{{ product.comments }}</ion-text>
+              </ion-col>
+              <ion-col size="6" class="ion-padding">
+                <p-inputGroup>
+                  <ion-button
+                    fill="outline"
+                    (click)="qty = qty === 0 ? 0 : qty - 1"
+                    ><ion-icon name="remove"></ion-icon
+                  ></ion-button>
+                  <p-inputNumber [(ngModel)]="qty" [min]="0"></p-inputNumber>
+                  <ion-button fill="outline" (click)="qty = qty + 1"
+                    ><ion-icon name="add"></ion-icon
+                  ></ion-button>
+                </p-inputGroup>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col class="ion-padding">
-                <ion-button expand="block" [fill]="'outline'">
+                <ion-button
+                  [disabled]="!qty"
+                  (click)="addToCart()"
+                  expand="block"
+                  [fill]="'outline'"
+                >
                   Ajouter au panier
-                  <ion-icon slot="start" name="cart"></ion-icon>
+                  <ion-icon slot="start" name="cart-outline"></ion-icon>
                 </ion-button>
               </ion-col>
             </ion-row>
