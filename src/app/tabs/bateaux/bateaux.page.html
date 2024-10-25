@@ -1,0 +1,112 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Bateaux</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar placeholder="Rechercher un bateau"></ion-searchbar>
+  <h2 class="featured-title">En Velette</h2>
+  <!--
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">En Velette</ion-title>
+    </ion-toolbar>
+  </ion-header>
+-->
+  <ion-grid>
+    <ion-row>
+      <ion-col> 
+  
+    <swiper-container [freeMode]="true" [spaceBetween]="20" [slidesPerView]="1.5" [loop]="true">
+     
+      @for (item of BateauxOnSale; track $index){
+      <swiper-slide *ngIf="$index < 2" style="background-image: url('{{item.img}}')">
+        <div>
+          <ion-grid>
+            <ion-row>
+                  <ion-col>
+                    <ion-row>
+                      <ion-col size="14">
+                          <ion-text>
+                            <h3>{{item.name}}</h3>
+                            <p>{{item.description}}</p>
+                          </ion-text>
+                        </ion-col>
+                            <ion-col class="price-col">
+                            </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </swiper-slide>
+          }
+      </swiper-container>
+      </ion-col>
+      </ion-row>
+      
+      
+      
+      <ion-row>
+        <ion-col class="ion-padding">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title [color]="'primary'">Bateaux</ion-card-title>
+            </ion-card-header>
+            <ion-list lines="none">
+              @for (Bateaux of BateauxOn; track $index) {
+              <ion-item  (click)="showDetails(Bateaux)">
+                <ion-avatar  slot="start">
+                  <img
+                    class="Bateaux-img"
+                    [src]="Bateaux.img"
+                    alt=""
+                  />
+                </ion-avatar>
+                <ion-label class="ion-no-margin">
+                  <ion-row>
+                    <ion-col>
+                      <ion-text>
+                        <h4>{{Bateaux.name | titlecase}}</h4>
+                        <span>
+                          {{BateauxOn[0].description| slice:0:50}}
+                          {{BateauxOn[0].description.length > 50 ? '...' :
+                          ''}}
+                        </span>
+                      </ion-text>
+                    </ion-col>
+                  </ion-row>
+                </ion-label>
+              </ion-item>
+            }
+          </ion-list>
+          <ion-card-footer class="ion-padding ion-margin-bottom">
+            <ion-text>Voir tout</ion-text>
+          </ion-card-footer>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+    
+    </ion-content>
+
+<ion-modal
+    (ionModalWillDismiss)="selectedbateaux = undefined"
+    #modal
+    [initialBreakpoint]="0.75"
+    [breakpoints]="[0, 0.75, 0.95]"
+  >
+    <app-detail-bateau
+    *ngIf="selectedbateaux"
+    [bateaux]="selectedbateaux"
+    ></app-detail-bateau>
+</ion-modal>
+  
+      
+      
+
+
+
+
+  

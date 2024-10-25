@@ -17,5 +17,6 @@ export const routes: Routes = [
       import('./tabs/restaurant/details/details.page').then(
         (m) => m.DetailsPage
       ),
-  },
+  }
+
 ];

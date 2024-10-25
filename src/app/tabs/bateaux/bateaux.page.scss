@@ -1,0 +1,64 @@
+ion-title{
+    font-family: 'Ms Madi';
+    font-size: 4em;
+    font-weight: initial;
+  }
+
+  .featured-title {
+    font-family: 'Ms Madi';
+    font-size: 2.5em;
+    padding-left: 15px;
+    color: #2d2d2d;
+  }
+  
+  :host swiper-slide {
+  width: 197px !important;
+  height: 236px !important;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  overflow: hidden;
+  
+  
+  & > div {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#00000000, #092d4b);
+    font-size: 10px;
+    color: white;
+    display: flex;
+  
+    & > ion-grid {
+      display: flex;
+      flex-direction: column-reverse;
+  
+      .comments {
+        height: 51px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis !important;
+           // white-space: nowrap;
+    }
+}
+}
+
+h3 {
+    font-family: "Ms Madi";
+    font-size: 2em;
+    margin: 0;
+  }
+  
+  .price-col {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  
+    & span {
+      text-decoration: line-through;
+      font-size: 11px;}
+}
+
+  }
+
+
+  
