@@ -55,8 +55,8 @@
               <ion-card-title [color]="'primary'">Bateaux</ion-card-title>
             </ion-card-header>
             <ion-list lines="none">
-              @for (Bateaux of BateauxOnSale; track $index) {
-              <ion-item>
+              @for (Bateaux of BateauxOn; track $index) {
+              <ion-item  (click)="showDetails(Bateaux)">
                 <ion-avatar  slot="start">
                   <img
                     class="Bateaux-img"
@@ -70,8 +70,8 @@
                       <ion-text>
                         <h4>{{Bateaux.name | titlecase}}</h4>
                         <span>
-                          {{BateauxOnSale[0].description| slice:0:50}}
-                          {{BateauxOnSale[0].description.length > 50 ? '...' :
+                          {{BateauxOn[0].description| slice:0:50}}
+                          {{BateauxOn[0].description.length > 50 ? '...' :
                           ''}}
                         </span>
                       </ion-text>
@@ -84,25 +84,25 @@
           <ion-card-footer class="ion-padding ion-margin-bottom">
             <ion-text>Voir tout</ion-text>
           </ion-card-footer>
-          <ion-footer>
-            <ion-tab-bar slot="botton">
-              <ion-tab-button>
-                <ion-icon name="home"></ion-icon>
-              </ion-tab-button>
-              <ion-tab-button>
-                <ion-icon name="bateaux"></ion-icon>
-              </ion-tab-button>
-              <ion-tab-button>
-                <ion-icon name="menu"></ion-icon>
-              </ion-tab-button>
-            </ion-tab-bar>
-            
-          </ion-footer>
         </ion-card>
       </ion-col>
     </ion-row>
     </ion-grid>
+    
     </ion-content>
+
+<ion-modal
+    (ionModalWillDismiss)="selectedbateaux = undefined"
+    #modal
+    [initialBreakpoint]="0.75"
+    [breakpoints]="[0, 0.75, 0.95]"
+  >
+    <app-detail-bateau
+    *ngIf="selectedbateaux"
+    [bateaux]="selectedbateaux"
+    ></app-detail-bateau>
+</ion-modal>
+  
       
       
 

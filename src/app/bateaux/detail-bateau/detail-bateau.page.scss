@@ -1,0 +1,17 @@
+#img{
+    width: 100%;
+    height: 25em;
+    background-size: cover !important;
+}
+
+ion-card{
+    margin-top: -3em;
+    border-radius: 50px;
+    box-shadow: none;
+}
+.description-text {
+    font-size: 1.2em; /* Taille de la police */
+    font-family: 'Arial', sans-serif; /* Type d'écriture */
+    color: #555; /* Couleur du texte (optionnel) */
+    line-height: 1.5em; /* Hauteur de ligne pour améliorer la lisibilité */
+}
