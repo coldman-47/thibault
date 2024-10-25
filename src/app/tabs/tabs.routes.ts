@@ -38,18 +38,21 @@ export const routes: Routes = [
             (m) => m.ProduitsListPage
           ),
       },
+      {
+        path: 'restaurants',
+        loadComponent: () =>
+          import('./restaurant/restaurant.page').then((m) => m.RestaurantPage),
+      },
+      {
+        path: 'contacts',
+        loadComponent: () =>
+          import('./contacte/contacte.page').then((m) => m.ContactePage),
+      },
     ],
   },
   {
     path: '',
     redirectTo: '/tabs/produits',
     pathMatch: 'full',
-  },
-  {
-    path: 'produits-list',
-    loadComponent: () =>
-      import('./produits-list/produits-list.page').then(
-        (m) => m.ProduitsListPage
-      ),
   },
 ];
