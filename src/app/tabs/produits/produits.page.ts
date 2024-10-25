@@ -28,6 +28,7 @@ register();
     RouterModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  
 })
 export class ProduitsPage implements OnInit {
   productsOnSale = [

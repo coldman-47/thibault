@@ -1,0 +1,110 @@
+ion-content {
+  --background: #efefef !important;
+}
+
+ion-title{
+    font-family: 'Ms Madi';
+    font-size: 4em;
+    font-weight: initial;
+  }
+
+  .featured-title {
+    font-family: 'Ms Madi';
+    font-size: 2.5em;
+    padding-left: 15px;
+    color: #2d2d2d;
+  }
+  
+  :host swiper-slide {
+  width: 197px !important;
+  height: 236px !important;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  overflow: hidden;
+  
+  
+  & > div {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#00000000, #092d4b);
+    font-size: 10px;
+    color: white;
+    display: flex;
+  
+    & > ion-grid {
+      display: flex;
+      flex-direction: column-reverse;
+  
+      .comments {
+        height: 51px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis !important;
+           // white-space: nowrap;
+    }
+}
+}
+
+h3 {
+    font-family: "Ms Madi";
+    font-size: 2em;
+    margin: 0;
+  }
+  
+  .price-col {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  
+    & span {
+      text-decoration: line-through;
+      font-size: 11px;}
+}
+
+  }
+
+
+  ion-list {
+    background: none;
+  
+    ion-item {
+      --background: #f3f3f3;
+      border-radius: 10px;
+      margin: 10px;
+      --padding-start: .35em;
+      --padding-end: .35em;
+      --padding-top: .35em;
+      --padding-bottom: .35em;
+      ion-text {
+        font-size: 11px;
+      }
+  
+      ion-avatar {
+        height: 50px;
+        width: 50px;
+        --border-radius: 10px;
+      }
+    }
+  }
+
+  ion-card {
+    margin: 0;
+    box-shadow: none;
+    --background: #e3e3e3;
+  
+    ion-card-footer {
+      display: block;
+      text-align: right;
+    }
+  }  
+
+  ion-searchbar {
+    background: white;
+    border-radius: 30px;
+    height: 50px;
+    --background: white;
+    .searchbar-input-container.sc-ion-searchbar-ios {
+      --min-height: 50px;
+    }
+  }
