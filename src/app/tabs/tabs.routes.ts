@@ -31,16 +31,6 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./produits/produits.page').then((m) => m.ProduitsPage),
       },
-      {
-        path: 'restaurant',
-        loadComponent: () =>
-          import('./../restaurant/restaurant.page').then((m) => m.RestaurantPage),
-      },
-      {
-        path: 'contacte',
-        loadComponent: () =>
-          import('./../contacte/contacte.page').then((m) => m.ContactePage),
-      },
     ],
   },
   {
@@ -48,4 +38,12 @@ export const routes: Routes = [
     redirectTo: '/tabs/tab1',
     pathMatch: 'full',
   },
+  {
+    path: 'produits-list',
+    loadComponent: () =>
+      import('./produits-list/produits-list.page').then(
+        (m) => m.ProduitsListPage
+      ),
+  },
+  
 ];

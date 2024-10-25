@@ -1,63 +1,80 @@
-ion-title{
-    font-family: 'Ms Madi';
-    font-size: 4em;
-    font-weight: initial;
+ion-content {
+  --background: #efefef !important;
 }
 
-:host swiper-slide {
-  width: 197px !important;
-  height: 236px !important;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 20px;
-  overflow: hidden;
+h1 {
+  font-family: "Ms Madi";
+  font-size: 4em;
+  font-weight: initial;
+  margin: 0;
+  color: #092d4b;
+}
 
-  & > div {
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(#00000000, #092d4b);
-    font-size: 10px;
-    color: white;
-    display: flex;
+:host {
+  swiper-slide {
+    width: 197px !important;
+    height: 236px !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    overflow: hidden;
 
-    & > ion-grid {
+    & > div {
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(#00000000, #092d4b);
+      font-size: 10px;
+      color: white;
       display: flex;
-      flex-direction: column-reverse;
 
-      .comments {
-        height: 51px;
-        display: block;
-        overflow: hidden;
-        text-overflow: ellipsis !important;
-        // white-space: nowrap;
+      & > ion-grid {
+        display: flex;
+        flex-direction: column-reverse;
+
+        .comments {
+          height: 51px;
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis !important;
+          // white-space: nowrap;
+        }
+      }
+    }
+
+    h3 {
+      font-family: "Ms Madi";
+      font-size: 2.6em;
+      margin: 0;
+    }
+
+    .price-col {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+
+      & span {
+        text-decoration: line-through;
+        font-size: 11px;
       }
     }
   }
 
-  h3 {
-    font-family: "Ms Madi";
-    font-size: 2.6em;
-    margin: 0;
-  }
-
-  .price-col {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-
-    & span {
-      text-decoration: line-through;
-      font-size: 11px;
+  ion-searchbar {
+    background: white;
+    border-radius: 30px;
+    height: 50px;
+    --background: white;
+    .searchbar-input-container.sc-ion-searchbar-ios {
+      --min-height: 50px;
     }
   }
 }
 
 ion-card {
-  .product-img {
-    // border-radius: 50%;
-  }
+  margin: 0;
+  box-shadow: none;
 
-  ion-card-footer{
+  ion-card-footer {
     display: block;
     text-align: right;
   }
@@ -73,8 +90,4 @@ ion-item {
     width: 50px;
     --border-radius: 10px;
   }
-
-  //   ion-label{
-  //     margin: 0;
-  //   }
 }

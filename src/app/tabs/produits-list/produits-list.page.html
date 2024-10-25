@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons [slot]="'start'">
+      <ion-back-button
+        [routerLink]="['/produits']"
+        [text]="'Retour'"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-padding-horizontal ion-margin-vertical"
+        ><ion-searchbar
+          [placeholder]="' Rechercher un produit'"
+          class="ion-no-padding"
+        ></ion-searchbar
+      ></ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-text-center">
+      <ion-col class="ion-justify-content-center">
+        <div class="filter-button">
+          <img src="assets/fishing-net.svg" alt="" />
+        </div>
+        <span>Tout</span>
+      </ion-col>
+      <ion-col class="ion-justify-content-center">
+        <div class="filter-button">
+          <img src="assets/fish.svg" alt="" />
+        </div>
+        <span>Poissons</span>
+      </ion-col>
+      <ion-col class="ion-justify-content-center">
+        <div class="filter-button">
+          <img src="assets/shrimp.svg" alt="" />
+        </div>
+        <span>Crustacés</span>
+      </ion-col>
+      <ion-col class="ion-justify-content-center">
+        <div class="filter-button">
+          <img src="assets/shellfish.svg" alt="" />
+        </div>
+        <span>Coquillages</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-vertical">
+      <ion-col class="ion-margin-vertical ion-padding-horizontal">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title [color]="'primary'">Nos produits</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-padding">
+            <ion-list lines="none">
+              @for (product of products; track $index) {
+              <ion-item (click)="showDetails(product)">
+                <ion-avatar slot="start">
+                  <img
+                    class="product-img"
+                    [src]="product.images ? product.images[0] : ''"
+                    alt=""
+                  />
+                </ion-avatar>
+                <ion-label class="ion-no-margin">
+                  <ion-row>
+                    <ion-col>
+                      <ion-text>
+                        <h4>{{product.name | titlecase}}</h4>
+                        <span>
+                          {{product.comments| slice:0:50}}
+                          {{product.comments?.length > 50 ? '...' : ''}}
+                        </span>
+                      </ion-text>
+                    </ion-col>
+                  </ion-row>
+                </ion-label>
+                <ion-note [color]="'primary'">{{product.price | currency}}</ion-note>
+              </ion-item>
+              }
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-modal
+  (ionModalWillDismiss)="selectedProduct = undefined"
+  #modal
+  [initialBreakpoint]="0.75"
+  [breakpoints]="[0, 0.75, 0.95]"
+>
+  <!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>Modal</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="modal.dismiss()">Fermer</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header> -->
+  <app-details
+    *ngIf="selectedProduct"
+    [product]="selectedProduct"
+  ></app-details>
+</ion-modal>

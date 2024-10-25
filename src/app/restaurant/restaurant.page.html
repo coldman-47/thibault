@@ -52,7 +52,7 @@
       </ion-card-header>
       <ion-list lines="none">
         @for (Restaurant of RestaurantOnSale; track $index) {
-        <ion-item routerLink="/restaurant/{{Restaurant.title}}">
+        <ion-item routerLink="/restaurant/{{Restaurant.title}}" (click)="showDetails(Restaurant)">
           <ion-avatar  slot="start">
             <img
               class="Restaurant-img"
@@ -65,11 +65,11 @@
               <ion-col>
                 <ion-text>
                   <h4>{{Restaurant.title | titlecase}}</h4>
-                  <span>
+                  <!-- <span>
                     {{RestaurantOnSale[0].description| slice:0:50}}
                     {{RestaurantOnSale[0].description.length > 50 ? '...' :
                     ''}}
-                  </span>
+                  </span> -->
                 </ion-text>
               </ion-col>
             </ion-row>
@@ -85,4 +85,14 @@
 </ion-row>
 </ion-grid>
 </ion-content>
-     
+<ion-modal
+  (ionModalWillDismiss)="selectedrestaurant = undefined"
+  #modal
+  [initialBreakpoint]="0.75"
+  [breakpoints]="[0, 0.75, 0.95]"
+>
+  <app-details
+    *ngIf="selectedrestaurant"
+    [restaurant]="selectedrestaurant"
+  ></app-details>     
+</ion-modal>
