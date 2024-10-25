@@ -7,18 +7,15 @@ export const routes: Routes = [
   },
   {
     path: 'restaurant',
-    loadComponent: () => import('./restaurant/restaurant.page').then( m => m.RestaurantPage)
+    loadComponent: () =>
+      import('./tabs/restaurant/restaurant.page').then((m) => m.RestaurantPage),
   },
-  {
-    path: 'contacte',
-    loadComponent: () => import('./contacte/contacte.page').then( m => m.ContactePage)
-  },
+
   {
     path: 'details',
-    loadComponent: () => import('./restaurant/details/details.page').then( m => m.DetailsPage)
+    loadComponent: () =>
+      import('./tabs/restaurant/details/details.page').then(
+        (m) => m.DetailsPage
+      ),
   },
- 
-  
-
-
 ];

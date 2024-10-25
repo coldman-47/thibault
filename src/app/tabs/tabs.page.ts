@@ -51,6 +51,7 @@ import {
   homeOutline,
   restaurantOutline,
   boatOutline,
+  personCircleOutline
 } from 'ionicons/icons';
 import { CartService } from '../services/cart.service';
 
@@ -113,6 +114,7 @@ export class TabsPage {
       homeOutline,
       restaurantOutline,
       boatOutline,
+      personCircleOutline
     });
     cartService.cartItems.subscribe({
       next: (val) => {
