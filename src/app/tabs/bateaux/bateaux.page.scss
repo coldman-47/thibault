@@ -1,3 +1,7 @@
+ion-content {
+  --background: #efefef !important;
+}
+
 ion-title{
     font-family: 'Ms Madi';
     font-size: 4em;
@@ -61,4 +65,46 @@ h3 {
   }
 
 
+  ion-list {
+    background: none;
   
+    ion-item {
+      --background: #f3f3f3;
+      border-radius: 10px;
+      margin: 10px;
+      --padding-start: .35em;
+      --padding-end: .35em;
+      --padding-top: .35em;
+      --padding-bottom: .35em;
+      ion-text {
+        font-size: 11px;
+      }
+  
+      ion-avatar {
+        height: 50px;
+        width: 50px;
+        --border-radius: 10px;
+      }
+    }
+  }
+
+  ion-card {
+    margin: 0;
+    box-shadow: none;
+    --background: #e3e3e3;
+  
+    ion-card-footer {
+      display: block;
+      text-align: right;
+    }
+  }  
+
+  ion-searchbar {
+    background: white;
+    border-radius: 30px;
+    height: 50px;
+    --background: white;
+    .searchbar-input-container.sc-ion-searchbar-ios {
+      --min-height: 50px;
+    }
+  }
