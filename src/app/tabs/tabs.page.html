@@ -1,39 +1,63 @@
 <ion-menu contentId="main-content">
-  <ion-title>Panier d'achier</ion-title>
-  <ion-list lines="inset">
-    @for (product of cartItems; track $index) {
-    <ion-item>
-      <ion-avatar slot="start">
-        <img
-          class="product-img"
-          [src]="product.images ? product.images[0] : ''"
-          alt=""
-        />
-      </ion-avatar>
-      <ion-label class="ion-no-margin">
-        <ion-row>
-          <ion-col>
-            <ion-text>
-              <h4>{{product.name | titlecase}}</h4>
-              <span>
-                {{product.comments| slice:0:50}}
-                {{product.comments?.length > 50 ? '...' : ''}}
-              </span>
-            </ion-text>
-          </ion-col>
-        </ion-row>
-      </ion-label>
-      <!-- <ion-note [color]="'primary'">{{product.price | currency}}</ion-note> -->
-    </ion-item>
-    }
-  </ion-list>
+  <ion-header mode="md">
+    <ion-toolbar mode="md">
+      <ion-title>Panier d'achier</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding-vertical">
+    <ion-list lines="none">
+      @for (product of cartItems; track $index) {
+      <ion-item-sliding>
+        <ion-item-options side="start">
+          <ion-item-option color="danger" (click)="remove($index, $event)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img
+              class="product-img"
+              [src]="product.images ? product.images[0] : ''"
+              alt=""
+            />
+          </ion-avatar>
+          <ion-label class="ion-no-margin">
+            <ion-row>
+              <ion-col size="12">
+                <ion-text>
+                  <h4>{{product.name | titlecase}}</h4>
+                </ion-text>
+                {{product.price| currency:'€ '}}
+              </ion-col>
+            </ion-row>
+          </ion-label>
+          <ion-note [color]="'primary'">
+            {{product.quantity | number}} article{{product.quantity > 1 ? 's':
+            ''}}
+          </ion-note>
+        </ion-item>
+      </ion-item-sliding>
+      }
+    </ion-list>
+  </ion-content>
+  <ion-footer class="ion-padding">
+    <ion-text color="primary" class="ion-text-center">
+      <h3>Total: {{total | currency:'€ '}} HT</h3>
+    </ion-text>
+    <ion-button expand="block">Valider le panier</ion-button>
+  </ion-footer>
 </ion-menu>
 <ion-tabs id="main-content">
   <ion-header>
     <ion-toolbar>
       <ion-buttons [slot]="'end'">
         <ion-menu-toggle>
-          <ion-button><ion-icon name="cart-outline"></ion-icon><ion-badge color="danger">{{cartItems.length}}</ion-badge></ion-button>
+          <ion-button
+            ><ion-icon name="cart-outline"></ion-icon
+            ><ion-badge color="danger"
+              >{{cartItems.length}}</ion-badge
+            ></ion-button
+          >
         </ion-menu-toggle>
         <!-- <ion-back-button
           [routerLink]="['/produits']"
@@ -43,19 +67,23 @@
     </ion-toolbar>
   </ion-header>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab1" href="/tabs/tab1">
-      <ion-icon aria-hidden="true" name="triangle"></ion-icon>
-      <ion-label>Tab 1</ion-label>
+    <ion-tab-button tab="produits" href="/tabs/produits">
+      <ion-icon aria-hidden="true" name="home-outline"></ion-icon>
+      <ion-label>Accueil</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab2" href="/tabs/tab2">
-      <ion-icon aria-hidden="true" name="ellipse"></ion-icon>
-      <ion-label>Tab 2</ion-label>
+    <ion-tab-button tab="produits-list" href="/tabs/produits-list">
+      <ion-icon aria-hidden="true" name="fish-outline"></ion-icon>
+      <ion-label>Produits</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3" href="/tabs/tab3">
-      <ion-icon aria-hidden="true" name="square"></ion-icon>
-      <ion-label>Tab 3</ion-label>
+    <ion-tab-button tab="restaurants" href="/tabs/restaurants">
+      <ion-icon aria-hidden="true" name="restaurant-outline"></ion-icon>
+      <ion-label>Restaurants</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="restaurants" href="/tabs/bateaux">
+      <ion-icon aria-hidden="true" name="boat-outline"></ion-icon>
+      <ion-label>Bateaux</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
